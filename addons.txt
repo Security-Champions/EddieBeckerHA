@@ -1,0 +1,7 @@
+chrony
+Node-Red
+ESPHome
+Studio Code Server
+Mosquitto Broker
+Samba share
+Home Assistant Google Drive Backup

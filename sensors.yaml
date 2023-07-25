@@ -1,0 +1,31 @@
+- platform: template
+  sensors:
+    people_home:
+      friendly_name: "# People Home"
+      value_template: >-
+        {{ states.person | map(attribute='state') | select('eq','home') | list | length }}
+    friendly_wind_direction:
+      friendly_name: "Wind Direction"
+      value_template: >-
+        {%if states.sensor.openweathermap_wind_bearing.state | float<=11 %}N
+        {% elif states.sensor.openweathermap_wind_bearing.state | float>348 %}N
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=34 | float>11 %}NNE
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=56 | float>34 %}NE
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=79 | float>56 %}ENE
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=101 | float>79 %}E
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=124 | float>101 %}ESE
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=146 | float>124 %}SE
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=169 | float>146 %}SSE
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=191 | float>169 %}S
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=214 | float>191 %}SSW
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=236 | float>214 %}SW
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=259 | float>236 %}WSW
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=281 | float>259 %}W
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=304 | float>281 %}WNW
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=326 | float>304 %}NW
+        {% elif states.sensor.openweathermap_wind_bearing.state | float<=348 | float>326 %}NNW
+        {%- endif %}
+    friendly_wind_speed:
+      friendly_name: "Wind Speed"
+      value_template: >-
+        {{ ((float(states('sensor.openweathermap_wind_speed')) * 2.237)) | round(2) }}

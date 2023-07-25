@@ -1,2 +1,3 @@
 # EddieBeckerHA
-Private HA deployment repo
+
+HA deployment repo

@@ -1,0 +1,21 @@
+occupied:
+  name: Home Occupied
+  initial: off
+  icon: mdi:home
+eddie_home:
+  name: Eddie Home
+  initial: off
+  icon: mdi:account
+guests:
+  name: Guests
+  initial: off
+  icone: mdiLaccount-group
+vacation:
+  name: Vacation
+  initial: off
+  icon: mdi:account
+presence_maintenance:
+  name: Presence Maintenance
+  initial: off
+eddie_notify:
+  name: "Eddie Notification"

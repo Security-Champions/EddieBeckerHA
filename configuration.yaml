@@ -1,0 +1,42 @@
+homeassistant:
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+  allowlist_external_dirs:
+    - /config
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+cloud:
+
+http:
+  ip_ban_enabled: true
+  login_attempts_threshold: 10
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+folder_watcher:
+  - folder: /config
+    patterns:
+      - "*.yaml"
+
+sensor rest: !include_dir_merge_list sensors/
+switch: !include switches.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+binary_sensor: !include binary_sensor.yaml
+sensor: !include sensors.yaml
+input_boolean: !include input_boolean.yaml
+input_button: !include input_button.yaml
+input_datetime: !include input_datetime.yaml
+input_number: !include input_number.yaml
+input_select: !include input_select.yaml
+input_text: !include input_text.yaml
+camera: !include cameras.yaml
+group: !include groups.yaml
