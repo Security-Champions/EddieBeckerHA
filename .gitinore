@@ -1,0 +1,29 @@
+ple .gitignore file for your config dir.
+# A * ensures that everything will be ignored.
+.google.token
+.google_maps_location_sharing.cookies.hickoryhome19_gmail_com
+/esphome
+google_calendars.yaml
+/themes
+/custom_components
+/nest
+/tts
+/prep
+/blueprints
+.HA_VERSION
+
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore folders.
+.storage
+.cloud
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+home-assistant.log*
+.google_maps_location_sharing.cookies
